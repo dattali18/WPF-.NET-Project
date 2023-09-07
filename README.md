@@ -1,36 +1,41 @@
-# dotNet5783_0879_5987
-This is a repo for the MiniProjectInWindows
-In here we are going to build a GUI application with fronend and backend for a store
+# Store Management & Selling - WPF .NET Project
 
-#Bonuses:
-#
-#Stage 1:
-#1) We used TryParse().
-#
-#Stage 2:
-#1) We used TryParse().
-#
-#Stage 3:
-#1) We used TryParse().
-#2) Added an option to sort the data by ID, Name, Categories, Price.
-#3) Added a button to go back from allmost all the windows.
-#4) Used Regex to make sure the user can't input in the Price and Amount TextBox.
-#5) Used Regex to virify if the email is OK (BL->BlImplementation->BlCart).
-#6) Add function to signal the user if the data he inputed is in the correct form.
-#
-#Stage 4:
-#1) Made the singelton class Thread Safe and Lazy Initialization.
-#2) Added the option to get the package by the attributes "namespace" and "class" and not just the default.
-#
-#Stage 5:
-#1) We created tabs for the admin in order to navigate faster between the products view and the orders.
-#2) When one of the top of columns clicked, we sort the items by the value of this cloumn.
-#3) Added calender view to order tracking.
-#4) Added verification to order tracking - the order id must match the name and the email.
-#5) On the product window (that allready exist) you can't change the id.
-#
-#Stage 6:
-#1) We used linq in order to find the last id's to products and orders.
-#
-#Stage 7:
-#1) We added progress bar.
+## Description
+
+This project is part of the "mini projects in windows system" course, focusing on teaching the SOLID principle and basic design patterns such as Singleton and Factory. The project aims to create a store management and selling application using WPF in C#.
+
+## Installation
+
+To run this project, follow these steps:
+
+1. Clone the repository to your local machine:
+
+
+2. Open the project in Visual Studio.
+
+3. Build and run the project from Visual Studio.
+
+## Usage
+
+This application consists of two main parts:
+
+1. **Manager's Interface**: In this section, the manager can add, update, and manage the inventory of the store.
+
+2. **User's Interface**: Users can purchase items and view their orders.
+
+## Screenshots and Video
+
+![Screenshot 1](screenshot1.png)
+![Screenshot 2](screenshot2.png)
+
+## Contributing
+
+Currently, we are not accepting contributions to this project.
+
+## Author
+
+This project is maintained by [Daniel Attali](https://www.linkedin.com/in/daniel-attali-3885a1209/).
+
+## Contact
+
+You can reach out to the author via [LinkedIn](https://www.linkedin.com/in/daniel-attali-3885a1209/) or by opening an issue on the GitHub repository.
