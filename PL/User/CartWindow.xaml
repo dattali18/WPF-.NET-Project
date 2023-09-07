@@ -1,0 +1,189 @@
+﻿<Window x:Class="PL.User.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.User"
+        mc:Ignorable="d"
+        x:Name="Window1"
+        Title="CartWindow" Height="500" Width="800"
+        FontSize="14"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" MouseDown="Window_MouseDown">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="0">
+            
+            <Label x:Name="Main_Lbl"
+               Content="Your Cart"
+               FontSize="16" FontWeight="Bold"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Padding="20, 0 ,0, 0"/>
+        </StackPanel>
+
+
+        <Button x:Name="Back_Btn"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+                Margin="0, 0 ,20, 0"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}" Click="Back_Btn_Click">
+            <Image Source="/User/arrow back.png" Height="18" Width="18"/>
+        </Button>
+
+
+        <Grid x:Name="UpGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,2,0,2"/>
+
+            <Grid Grid.Row="1" Grid.Column="1"
+                  x:Name="info_Grid"
+                  Grid.ColumnSpan="1"
+                  Margin="0,0,0,40"
+                  Grid.RowSpan="2"
+                  DataContext="{Binding ElementName=Window1}">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+                <Label 
+                       Grid.Row="0" Grid.Column="0"
+                       x:Name="CostumerName_Lbl"
+                       Width="200"
+                       Content="Costumer Name"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock 
+                       Grid.Row="0" Grid.Column="1"
+                       x:Name="CostumerName_Txt"
+                       Text="{Binding Path=Cart.CostumerName}"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <Label 
+                        Grid.Row="1" Grid.Column="0"
+                        x:Name="CostumerEmail_Lbl"
+                        Width="200"
+                       Content="Costumer Email"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+                <TextBlock x:Name="CostumerEmail_Txt"
+                           Grid.Row="1" Grid.Column="1"
+                       Text="{Binding Path=Cart.CostumerEmail}"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <Label x:Name="CostumerAddress_Lbl"
+                           Width="200"
+                       Grid.Row="2" Grid.Column="0"
+                       Content="Costumer Address"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock x:Name="CostumerAddress_Txt"
+                       Text="{Binding Path=Cart.CostumerAddress}"
+                           Grid.Row="2" Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <Label x:Name="OrderItem_Lbl"
+                       Grid.Row="3" Grid.Column="0"
+                       Content="Total Price"
+                       Padding="10, 0 ,0, 0"
+                       Width="200"
+                       VerticalAlignment="Center"/>
+
+                <TextBlock x:Name="TotalPrice_txt"
+                           VerticalAlignment="Center"
+                           Padding="10, 0 ,0, 0"
+                           Grid.Row="3" Grid.Column="1"
+                           Text="{Binding Path=Cart.TotalPrice, StringFormat={}{0:C}}"/>
+
+                <!--List View-->
+                <ListView x:Name="OrderItem_LV" d:ItemsSource="{d:SampleData ItemCount=5}"
+                          ItemsSource="{Binding Path=OrderItems}"
+                          Grid.Row="4" 
+                          Width="Auto"
+                          Grid.ColumnSpan="3"
+                          BorderThickness="2"
+                          MouseDoubleClick="OrderItem_LV_MouseDoubleClick">
+                    <ListView.View>
+                        <GridView x:Name="GridView" AllowsColumnReorder="true">
+                            
+                            <GridViewColumn x:Name="Ids"  DisplayMemberBinding="{Binding ProductID}">
+                                <GridViewColumnHeader x:Name="ID_GVCH" Click="ID_GVCH_Click" Content="ID" Cursor="Hand"/>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Status" DisplayMemberBinding="{Binding Price, StringFormat={}{0:C}}" Width="100">
+                                <GridViewColumnHeader x:Name="Status_GVCH" Click="Status_GVCH_Click"  Content="Price" Cursor="Hand"/>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Amount" DisplayMemberBinding="{Binding Amount}" Width="100">
+                                <GridViewColumnHeader x:Name="Amount_GVCH" Click="Amount_GVCH_Click" Content="Amount" Cursor="Hand"/>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Add" Width="40">
+                                <GridViewColumnHeader x:Name="Add_GVCH" Content="" Cursor="Hand"/>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="AddProduct" Width="20" Click="AddProduct_Click"
+                                        BorderBrush="{x:Null}"
+                                        Background="{x:Null}"
+                                        Tag="{Binding ProductID}">
+                                            <Image Source="\User\plus_sign.png" Height="18" Width="18"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Remove" Width="40">
+                                <GridViewColumnHeader x:Name="Remove_GVCH" Content="" Cursor="Hand"/>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="RemoveProduct" Width="20" Click="RemoveProduct_Click"
+                                        BorderBrush="{x:Null}"
+                                        Background="{x:Null}"
+                                        Tag="{Binding ProductID}">
+                                            <Image Source="/User/remove_sign.png" Height="18" Width="18"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+            <Button x:Name="Buy_btn"
+                    Content="Buy now" Grid.Column="1" Grid.Row="2" Width="250" Height="25"
+                    Margin="0, 5"
+                    Click="Buy_btn_Click"/>
+        </Grid>
+    </Grid>
+</Window>

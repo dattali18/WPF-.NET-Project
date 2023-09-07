@@ -1,0 +1,2 @@
+﻿to count how many lines of code in a project
+(gci -include *.cs,*.xaml -recurse | select-string .).Count

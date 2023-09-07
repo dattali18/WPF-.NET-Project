@@ -1,0 +1,245 @@
+﻿<Window x:Class="PL.User.OrderTracking"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.User"
+        mc:Ignorable="d"
+        Title="OrderTracking" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        FontSize="14"
+        ResizeMode="NoResize" MouseDown="Window_MouseDown">
+    
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="Main_Lbl"
+               Grid.Row="0" Content="Order Tracking"
+               FontSize="16" FontWeight="Bold"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Padding="20, 0 ,0, 0"/>
+
+        <Button x:Name="Back_Btn"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+                Margin="0, 0 ,20, 0"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Click="Back_Btn_Click">
+            <Image Source="/Admin/Products/arrow back.png" Height="18" Width="18"/>
+        </Button>
+
+        <Border Grid.Row="1"/>
+
+        <Grid x:Name="UpGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical"
+                        x:Name="MainStack">
+            
+                <StackPanel Orientation="Vertical"
+                            Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label      HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Column="0"
+                                    Content="Order ID"/>
+                        
+                        <Label      HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Column="1"
+                                    Content="Name"/>
+                        
+                        <Label      HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Column="3"
+                                    Content="Email"/>
+                    </Grid>
+                    
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="5.5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBox    x:Name="OrderId_TBx"
+                                    Grid.Column="0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="100000"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0"/>
+
+                        <TextBox    x:Name="OrderName_TBx"
+                                    Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="Name"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0"/>
+
+                        <TextBox    x:Name="OrderEmail_TBx"
+                                    Grid.Column="2"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="email@mail.com"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0"/>
+
+                        <Button Grid.Column="4"
+                                x:Name="Search_Btn"
+                                Background="{x:Null}"
+                                BorderBrush="{x:Null}"
+                                Click="Search_Btn_Click">
+                            <Image Height="18" Width="18" Source="/User/search_Icon.png"/>
+                        </Button>
+                    </Grid>
+
+                </StackPanel>
+
+                <Separator/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label 
+                        Grid.Column="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Content="Order Placed"
+                        HorizontalContentAlignment="Center"/>
+                    <Label 
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Content="Order Shipped"
+                        HorizontalContentAlignment="Center"/>
+                    <Label 
+                        Grid.Column="2"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Content="Order Arrived"
+                        HorizontalContentAlignment="Center"/>
+                </Grid>
+
+                <Separator/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    
+                    
+                    <Calendar   x:Name="OrderPlaced_cd"
+                                Grid.Column="0"
+                                IsHitTestVisible="False"
+                                VerticalAlignment="Center"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" />
+                    
+                    <Calendar   x:Name="OrderSent_cd"
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                IsHitTestVisible="False"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" />
+                    <Calendar   x:Name="OrderArrived_cd"
+                                Grid.Column="2"
+                                VerticalAlignment="Center"
+                                IsHitTestVisible="False"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0"
+                                />
+                </Grid>
+
+                <Separator/>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    
+                    <TextBlock
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{Binding ElementName=OrderPlaced_cd, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{Binding ElementName=OrderSent_cd, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock 
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{Binding ElementName=OrderArrived_cd, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"/>
+
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Order Status:"/>
+                    <TextBlock
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{Binding Status}"/>
+                </Grid>
+                <Grid>
+                    <Button
+                        x:Name="orderBtn"
+                        Content="Go to Order"
+                        Click="orderBtn_Click"
+                        Width="250"
+                        Margin="0, 10" Cursor="Hand" Visibility="Hidden"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,143 @@
+﻿<Window x:Class="PL.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"      
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="Product Window" Height="450" Width="800"
+        FontSize="16"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" MouseDown="ProductWindow_MouseDown">
+    
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="Main_Lbl"
+               Grid.Row="0" Content="Add Product"
+               FontSize="16" FontWeight="Bold"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Padding="20, 0 ,0, 0"/>
+
+        <Button x:Name="Back_Btn"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+                Margin="0, 0 ,20, 0"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Click="Back_Btn_Click">
+            <Image Source="/Admin/Products/arrow back.png" Height="18" Width="18"/>
+        </Button>
+
+        <Border Grid.Row="1"/>
+
+        <Grid x:Name="UpGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            
+            <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+                
+                <StackPanel Orientation="Vertical"
+                            Margin="5">
+                    <Label      HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Content="Product ID"/>
+
+                    <TextBox    x:Name="ProductID_TxtBx"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="100000"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical"
+                            Margin="5">
+                    <Label
+                                VerticalAlignment="Center"
+                                Content="Product Name"/>
+
+                    <TextBox    x:Name="ProductName_TxtBx"
+                                VerticalAlignment="Center"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0"
+                                HorizontalAlignment="Stretch" 
+                                LostFocus="ProductName_Txbx_Change"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical"
+                            Margin="5">
+                    <Label      HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Content="Product Price"/>
+
+                    <TextBox    x:Name="ProductPrice_TxtBx"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                PreviewTextInput="NumberValidationTextBox"
+                                Text="0"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" 
+                                LostFocus="ProductPrice_Txtbx_Change"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical"
+                            Margin="5">
+                    <Label      HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Content="Product Categorie"/>
+
+                    <ComboBox   x:Name="Categories"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0"
+                                Cursor="Hand"/>
+                </StackPanel>
+                    
+                <StackPanel Orientation="Vertical"
+                            Margin="5">
+                    <Label      HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Content="Amount in stock"/>
+
+                    <TextBox    x:Name="ProductAmount_TxtBx"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                PreviewTextInput="NumberValidationTextBox"
+                                Text="0"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" 
+                                LostFocus="ProductAmount_Txtbx_Change"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="10"
+                            HorizontalAlignment="Center">
+                    <Button     x:Name="AddProduct_Btn"
+                                HorizontalAlignment="Center"
+                                Content="Add product" Click="AddProduct_Btn_Click"
+                                Width="250"
+                                Cursor="Hand"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

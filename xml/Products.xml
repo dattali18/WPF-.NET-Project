@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Products>
+  <Product>
+    <ID>100003</ID>
+    <Name>Lenovo Ideapad</Name>
+    <Categorie>Laptop</Categorie>
+    <Price>3000</Price>
+    <InStock>10</InStock>
+  </Product>
+  <Product>
+    <ID>100005</ID>
+    <Name>Dell Precision</Name>
+    <Categorie>Desktop</Categorie>
+    <Price>17000</Price>
+    <InStock>20</InStock>
+  </Product>
+  <Product>
+    <ID>100006</ID>
+    <Name>Asus ROG Strix</Name>
+    <Categorie>Desktop</Categorie>
+    <Price>16000</Price>
+    <InStock>5</InStock>
+  </Product>
+  <Product>
+    <ID>100007</ID>
+    <Name>HP ZBook Fury</Name>
+    <Categorie>Desktop</Categorie>
+    <Price>16500</Price>
+    <InStock>5</InStock>
+  </Product>
+  <Product>
+    <ID>100008</ID>
+    <Name>Dell PowerEdge</Name>
+    <Categorie>Server</Categorie>
+    <Price>9000</Price>
+    <InStock>8</InStock>
+  </Product>
+  <Product>
+    <ID>100009</ID>
+    <Name>Lenovo ThinkSystem</Name>
+    <Categorie>Server</Categorie>
+    <Price>7700</Price>
+    <InStock>30</InStock>
+  </Product>
+  <Product>
+    <ID>100010</ID>
+    <Name>IPhone X</Name>
+    <Categorie>Phone</Categorie>
+    <Price>2000</Price>
+    <InStock>10</InStock>
+  </Product>
+  <Product>
+    <ID>100012</ID>
+    <Name>IPhone 12</Name>
+    <Categorie>Phone</Categorie>
+    <Price>2100</Price>
+    <InStock>4</InStock>
+  </Product>
+  <Product>
+    <ID>100013</ID>
+    <Name>IPhone 13</Name>
+    <Categorie>Phone</Categorie>
+    <Price>1990</Price>
+    <InStock>5</InStock>
+  </Product>
+  <Product>
+    <ID>100014</ID>
+    <Name>Samsung Galaxy</Name>
+    <Categorie>Phone</Categorie>
+    <Price>2200</Price>
+    <InStock>5</InStock>
+  </Product>
+  <Product>
+    <ID>100016</ID>
+    <Name>RealMe 12</Name>
+    <Categorie>Phone</Categorie>
+    <Price>1000</Price>
+    <InStock>12</InStock>
+  </Product>
+  <Product>
+    <ID>100017</ID>
+    <Name>AirPod Pro</Name>
+    <Categorie>Accessories</Categorie>
+    <Price>200</Price>
+    <InStock>30</InStock>
+  </Product>
+  <Product>
+    <ID>100018</ID>
+    <Name>AirPod Max</Name>
+    <Categorie>Accessories</Categorie>
+    <Price>500</Price>
+    <InStock>20</InStock>
+  </Product>
+  <Product>
+    <ID>100021</ID>
+    <Name>Air Pro Max 2</Name>
+    <Categorie>Accessories</Categorie>
+    <Price>700</Price>
+    <InStock>3</InStock>
+  </Product>
+  <Product>
+    <ID>100015</ID>
+    <Name>Google Pixel</Name>
+    <Categorie>Phone</Categorie>
+    <Price>1800</Price>
+    <InStock>30</InStock>
+  </Product>
+  <Product>
+    <ID>100020</ID>
+    <Name>Magic Mouse</Name>
+    <Categorie>Accessories</Categorie>
+    <Price>100</Price>
+    <InStock>13</InStock>
+  </Product>
+  <Product>
+    <ID>100019</ID>
+    <Name>Mouse Pad</Name>
+    <Categorie>Accessories</Categorie>
+    <Price>60</Price>
+    <InStock>9</InStock>
+  </Product>
+  <Product>
+    <ID>100022</ID>
+    <Name>Xbox</Name>
+    <Categorie>Laptop</Categorie>
+    <Price>359</Price>
+    <InStock>0</InStock>
+  </Product>
+  <Product>
+    <ID>100002</ID>
+    <Name>Dell Vostro</Name>
+    <Categorie>Laptop</Categorie>
+    <Price>5000</Price>
+    <InStock>8</InStock>
+  </Product>
+  <Product>
+    <ID>100004</ID>
+    <Name>Apple Mac Pro</Name>
+    <Categorie>Desktop</Categorie>
+    <Price>23000</Price>
+    <InStock>19</InStock>
+  </Product>
+  <Product>
+    <ID>100011</ID>
+    <Name>IPhone 11</Name>
+    <Categorie>Phone</Categorie>
+    <Price>1500</Price>
+    <InStock>10</InStock>
+  </Product>
+  <Product>
+    <ID>100001</ID>
+    <Name>Apple MacBook Pro</Name>
+    <Categorie>Phone</Categorie>
+    <Price>7000</Price>
+    <InStock>0</InStock>
+  </Product>
+</Products>

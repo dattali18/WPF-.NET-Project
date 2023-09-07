@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+
+	<BaseOutputPath>$(SolutionDir)\bin\</BaseOutputPath>
+	<OutputPath>$(SolutionDir)\bin\</OutputPath>
+	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+	<UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Admin\arrow back.png" />
+    <None Remove="Admin\Order\arrow back.png" />
+    <None Remove="Admin\Products\arrow back.png" />
+    <None Remove="UserControlWindow\Admin\close_btn.png" />
+    <None Remove="User\arrow back.png" />
+    <None Remove="User\cart_icon.png" />
+    <None Remove="User\plus_sign.png" />
+    <None Remove="User\remove_sign.png" />
+    <None Remove="User\search_Icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj" />
+    <ProjectReference Include="..\Simulator\Simulator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="static\" />
+	<Folder Include="Admin\" />
+	<Folder Include="Utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Admin\arrow back.png" />
+    <Resource Include="Admin\Order\arrow back.png" />
+    <Resource Include="Admin\Products\arrow back.png" />
+    <Resource Include="UserControlWindow\Admin\close_btn.png" />
+    <Resource Include="User\arrow back.png" />
+    <Resource Include="User\cart_icon.png" />
+    <Resource Include="User\plus_sign.png" />
+    <Resource Include="User\remove_sign.png" />
+    <Resource Include="User\search_Icon.png" />
+  </ItemGroup>
+
+</Project>

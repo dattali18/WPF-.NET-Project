@@ -1,0 +1,124 @@
+﻿<Window x:Class="PL.Admin.Order.OrderListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.Admin.Order"
+        mc:Ignorable="d"
+        Title="Orders" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        FontSize="14"
+        x:Name="Window1"
+        ResizeMode="NoResize" MouseDown="Window_MouseDown">
+    <Grid>
+        <!--Main Grid-->
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="500*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+            <!--Top element in window-->
+            <Grid x:Name="UpGrid"
+              HorizontalAlignment="Stretch"
+              Height="Auto"
+              Grid.Row="0"
+              VerticalAlignment="Stretch"
+              Width="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label  x:Name="Main_Lbl" Grid.Column="0" Content="Order List Window"
+                    FontSize="16" FontWeight="Bold"/>
+
+                <ComboBox Name="OrderCategoriesSelector"
+                      HorizontalAlignment= "Stretch"
+                      VerticalAlignment="Stretch"
+                      Grid.Column="1" SelectionChanged="OrderCategoriesSelector_SelectionChanged"
+                      Margin="0, 2, 5, 4"
+                      Cursor="Hand"/>
+
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    FontWeight="Bold"
+                    Content="Grouping"/>
+                <CheckBox 
+                    x:Name="Name_ChBx"
+                    Checked="Name_ChBx_Checked"
+                    Unchecked="Name_ChBx_Unchecked"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    Content="Name"/>
+                <CheckBox
+                    x:Name="Status_ChBx"
+                    Checked="Status_ChBx_Checked"
+                    Unchecked="Status_ChBx_Unchecked"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Content="Stasus"/>
+                <CheckBox
+                    Checked="Price_ChBx_Checked"
+                    Unchecked="Price_ChBx_Unchecked"
+                    x:Name="Price_ChBx"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Content="Price"/>
+
+            </Grid>
+
+            <Separator Grid.Row="2"/>
+            <!--List View-->
+            <ListView Grid.Row="3" x:Name="Orders_LV" d:ItemsSource="{d:SampleData ItemCount=5}"
+                  ItemsSource="{Binding ElementName=Window1, Path=OrdList}"
+                  Margin="20, 5, 20, 0" MouseDoubleClick="Orders_LV_MouseDoubleClick">
+                <ListView.View>
+                    <GridView x:Name="GridView" AllowsColumnReorder="true">
+                        <GridViewColumn x:Name="Ids"  DisplayMemberBinding="{Binding ID}">
+                            <GridViewColumnHeader x:Name="ID_GVCH" Click="ID_GVCH_Click" Content="ID" Cursor="Hand"/>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="Names" DisplayMemberBinding="{Binding Name}">
+                            <GridViewColumnHeader x:Name="Name_GVCH" Click="Name_GVCH_Click" Content="Name" Cursor="Hand"/>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="Status" DisplayMemberBinding="{Binding Status}" Width="100">
+                            <GridViewColumnHeader x:Name="Status_GVCH" Click="Status_GVCH_Click"  Content="Status" Cursor="Hand"/>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="Amount" DisplayMemberBinding="{Binding Amount}" Width="100">
+                            <GridViewColumnHeader x:Name="Amount_GVCH" Click="Amount_GVCH_Click" Content="Amount" Cursor="Hand"/>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="TotalPrice" DisplayMemberBinding="{Binding TotalPrice, StringFormat={}{0:C}}" Width="100">
+                            <GridViewColumnHeader x:Name="TotalPrice_GVCH" Click="TotalPrice_GVCH_Click" Content="Total Price" Cursor="Hand"/>
+                        </GridViewColumn>
+                    </GridView>
+
+                </ListView.View>
+
+                <ListView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ListView.GroupStyle>
+            </ListView>
+
+
+        </Grid>
+    </Grid>
+</Window>

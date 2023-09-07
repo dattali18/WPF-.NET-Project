@@ -1,0 +1,248 @@
+﻿<Window x:Class="PL.Admin.Order.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Order Window" Height="550" Width="840"
+        FontSize="14"
+        x:Name="Window1"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" MouseDown="Window_MouseDown">
+
+    <Grid x:Name="MainGrid"
+          DataContext="{Binding ElementName=Window1}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="0">
+            <Label x:Name="Main_Lbl"
+
+               Content="Order number "
+               FontSize="16" FontWeight="Bold"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Padding="20, 0 ,0, 0"/>
+            
+            <Label x:Name="ID_Lbl"
+               Content="{Binding ElementName=Window1, Path=Order.ID}"
+               FontSize="16" FontWeight="Bold"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Padding="10, 0 ,0, 0"/>
+        </StackPanel>
+        
+
+        <Button x:Name="Back_Btn"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+                Margin="0, 0 ,20, 0"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}" Click="Back_Btn_Click">
+            <Image Source="/Admin/Order/arrow back.png" Height="18" Width="18"/>
+        </Button>
+        
+
+        <Grid x:Name="UpGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Separator Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+            <Grid Grid.Row="1" Grid.Column="1" x:Name="info_Grid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                
+                <Label 
+                       Grid.Row="0" Grid.Column="0"
+                       x:Name="CostumerName_Lbl"
+                       Width="200"
+                       Content="Costumer Name"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock 
+                       Grid.Row="0" Grid.Column="1"
+                       x:Name="CostumerName_Txt"
+                       Text="{Binding ElementName=Window1, Path=Order.CostumerName, Mode=TwoWay}"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <Label 
+                        Grid.Row="1" Grid.Column="0"
+                        x:Name="CostumerEmail_Lbl"
+                        Width="200"
+                       Content="Costumer Email"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+                <TextBlock x:Name="CostumerEmail_Txt"
+                           Grid.Row="1" Grid.Column="1"
+                       Text="{Binding ElementName=Window1, Path=Order.CostumerEmail}"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+                
+                <Label x:Name="CostumerAddress_Lbl"
+                           Width="200"
+                       Grid.Row="2" Grid.Column="0"
+                       Content="Costumer Address"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock x:Name="CostumerAddress_Txt"
+                       Text="{Binding ElementName=Window1, Path=Order.CostumerAddress}"
+                           Grid.Row="2" Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+                
+                <Label x:Name="Status_Lbl"
+                           Width="200"
+                       Grid.Row="3" Grid.Column="0"
+                       Content="Status"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock x:Name="Status_Txt"
+                       Text="{Binding ElementName=Window1, Path=Order.Status}"
+                           Grid.Row="3" Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+                
+                <Label x:Name="OrderPlaced_Lbl"
+                           Width="200"
+                       Grid.Row="4" Grid.Column="0"
+                       Content="Order Placed"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock x:Name="OrderPlaced_Txt"
+                       Text="{Binding ElementName=Window1, Path=Order.OrderPlaced}"
+                           Grid.Row="4" Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+                
+                <Label x:Name="Shipped_Lbl"
+                           Width="200"
+                       Grid.Row="5" Grid.Column="0"
+                       Content="Shipped"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock x:Name="Shipped_Txt"
+                       Text="{Binding ElementName=Window1, Path=Order.Shipped}"
+                           Grid.Row="5" Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <Button x:Name="Shiped_Btn"
+                        Grid.Row="5" Grid.Column="2"
+                        Width="150"
+                        Margin="0, 2, 0, 2"
+                        FontSize="12"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Content="Shipped"
+                        Click="Shiped_Btn_Click"/>
+
+                <Label x:Name="Delivered_Lbl"
+                       Grid.Row="6" Grid.Column="0"
+                           Width="200"
+                       Content="Delivered"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <TextBlock x:Name="Delivered_Txt"
+                       Text="{Binding ElementName=Window1, Path=Order.Delivered}"
+                           Grid.Row="6" Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Padding="10, 0 ,0, 0"/>
+
+                <Button x:Name="Delivred_Btn"
+                        Grid.Row="6" Grid.Column="2"
+                        Width="150"
+                        Margin="0, 2, 0, 2"
+                        FontSize="12"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Delivred"
+                        Click="Delivred_Btn_Click"/>
+
+                <Label x:Name="OrderItem_Lbl"
+                       Grid.Row="7" Grid.Column="0"
+                       Content="Total Price"
+                       Padding="10, 0 ,0, 0"
+                       Width="200"
+                       VerticalAlignment="Center"/>
+
+                <TextBlock x:Name="TotalPrice_txt"
+                           VerticalAlignment="Center"
+                           Padding="10, 0 ,0, 0"
+                           Grid.Row="7" Grid.Column="1"
+                           Text="{Binding ElementName=Window1, Path=OrderForList.TotalPrice, StringFormat={}{0:C}}"/>
+
+                <!--List View-->
+                <ListView x:Name="OrderItem_LV" d:ItemsSource="{d:SampleData ItemCount=5}"
+                          ItemsSource="{Binding ElementName=Window1, Path=Items}"
+                          Grid.Row="9" 
+                          Width="Auto"
+                          Grid.ColumnSpan="3"
+                          BorderThickness="2"
+                          MouseDoubleClick="OrderItem_LV_MouseDoubleClick">
+                    <ListView.View>
+                        <GridView x:Name="GridView" AllowsColumnReorder="true">
+                            <GridViewColumn x:Name="Ids"  DisplayMemberBinding="{Binding ProductId}">
+                                <GridViewColumnHeader x:Name="ID_GVCH" Click="ID_GVCH_Click" Content="ID" Cursor="Hand"/>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Names" DisplayMemberBinding="{Binding Name}">
+                                <GridViewColumnHeader x:Name="Name_GVCH" Click="Name_GVCH_Click" Content="Name" Cursor="Hand"/>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Status" DisplayMemberBinding="{Binding Price, StringFormat={}{0:C}}" Width="100">
+                                <GridViewColumnHeader x:Name="Status_GVCH" Click="Status_GVCH_Click"  Content="Price" Cursor="Hand"/>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="Amount" DisplayMemberBinding="{Binding Amount}" Width="100">
+                                <GridViewColumnHeader x:Name="Amount_GVCH" Click="Amount_GVCH_Click" Content="Amount" Cursor="Hand"/>
+                            </GridViewColumn>
+                            <GridViewColumn x:Name="TotalPrice" DisplayMemberBinding="{Binding TotalPrice, StringFormat={}{0:C}}" Width="100">
+                                <GridViewColumnHeader x:Name="TotalPrice_GVCH" Click="TotalPrice_GVCH_Click" Content="Total Price" Cursor="Hand"/>
+                            </GridViewColumn>
+                        </GridView>
+
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+            <Button x:Name="Update_Btn"
+                    Content="Update Order" Grid.Column="1" Grid.Row="2" Width="250" Height="25"
+                    Margin="0, 5, 0, 5"
+                    Click="Update_Btn_Click"/>
+        </Grid>
+    </Grid>
+</Window>

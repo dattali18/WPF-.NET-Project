@@ -1,0 +1,77 @@
+﻿<Window x:Class="PL.ProductListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        x:Name="Window1"
+        Title="Products" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        FontSize="14"
+        ResizeMode="NoResize" MouseDown="Products_MouseDown">
+    <!--Main Grid-->
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!--Top element in window-->
+        <Grid x:Name="UpGrid"
+              HorizontalAlignment="Stretch"
+              Height="Auto"
+              Grid.Row="0"
+              VerticalAlignment="Stretch"
+              Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label  x:Name="Main_Lbl" Grid.Column="0" Content="Prodcuts List Window"
+                    FontSize="16" FontWeight="Bold"/>
+
+            <ComboBox Name="ProductsCategoriesSelector"
+                      HorizontalAlignment= "Stretch"
+                      VerticalAlignment="Stretch"
+                      Grid.Column="1" SelectionChanged="ProductsCategoriesSelector_SelectionChanged"
+                      Margin="0, 2, 5, 2"
+                      Cursor="Hand"/>
+
+        </Grid>
+
+        <Separator Grid.Row="1"/>
+        <!--List View-->
+        <ListView Grid.Row="2" x:Name="Products_LV" d:ItemsSource="{d:SampleData ItemCount=5}"
+                  ItemsSource="{Binding ElementName=Window1, Path=ProdList}"
+                  Margin="20, 5, 20, 0" MouseDoubleClick="UpdateProduct_Double_click">
+            <ListView.View>
+                <GridView x:Name="GridView" AllowsColumnReorder="true">
+                    <GridViewColumn x:Name="Ids"  DisplayMemberBinding="{Binding ID}">
+                        <GridViewColumnHeader x:Name="ID_GVCH" Click="ID_GV_Btn_Click" Content="ID" Cursor="Hand"/>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="Names" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumnHeader x:Name="Name_GVCH" Click="Name_GV_Btn_Click" Content="Name" Cursor="Hand"/>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="Categorie" DisplayMemberBinding="{Binding Categories}" Width="100">
+                        <GridViewColumnHeader x:Name="Categorie_GVCH" Click="Categorie_GVCH_Click"  Content="Categorie" Cursor="Hand"/>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="Prices" DisplayMemberBinding="{Binding Price, StringFormat={}{0:C}}" Width="100">
+                        <GridViewColumnHeader x:Name="Price_GVCH" Click="Price_GV_Btn_Click" Content="Price" Cursor="Hand"/>
+                    </GridViewColumn>
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+        
+        <!--Add Product button-->
+        <Button Grid.Row="3"
+                x:Name="AddProduct_Btn"
+                Width="200" Height="30"
+                Margin="0, 10, 0, 10"
+                Content="Add Product" Click="AddProduct_Btn_Click"  Cursor="Hand"/>
+
+    </Grid>
+</Window>

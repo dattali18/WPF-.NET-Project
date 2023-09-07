@@ -1,0 +1,119 @@
+﻿<Window x:Class="PL.User.BuyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.User"
+        mc:Ignorable="d"
+        Title="BuyWindow" Height="400" Width="700"
+        FontSize="16"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" MouseDown="Window_MouseDown">
+    
+    <!--Main Grid-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="500*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="UpGrid"
+              HorizontalAlignment="Stretch"
+              Height="Auto"
+              Grid.Row="0"
+              VerticalAlignment="Stretch"
+              Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.ColumnSpan="3" Content="User Buying Window"
+                   FontSize="16" FontWeight="Bold"/>
+
+            <Button x:Name="Back_Btn"
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+                Margin="0, 0 ,20, 0"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}" Click="Back_Btn_Click">
+                <Image Source="/User/arrow back.png" Height="18" Width="18"/>
+            </Button>
+
+            <Separator Grid.Row="1"/>
+        </Grid>
+        <Grid
+                Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Vertical">
+                <StackPanel
+                    Margin="5"
+                    Orientation="Vertical">
+                    <Label 
+                            x:Name="CostumerName_Lbl"
+                            Content="Costumer Name"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            />
+
+                    <TextBox x:Name="CostumerName_TxtBx"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" 
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="Name"/>
+                </StackPanel>
+
+                <StackPanel
+                    Margin="5"
+                    Orientation="Vertical">
+                    <Label 
+                            x:Name="CostumerMail_Lbl"
+                            Content="Costumer Mail"
+                            VerticalAlignment="Center"
+                            />
+
+                    <TextBox x:Name="CostumerMail_TxtBx"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" 
+                                VerticalAlignment="Center"
+                                Text="example@mail.com"
+                                HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            
+                <StackPanel
+                    Margin="5"
+                    Orientation="Vertical">
+                    <Label 
+                            x:Name="CostumerAddress_Lbl"
+                            Content="Costumer Address"
+                            VerticalAlignment="Center"
+                            />
+
+                    <TextBox x:Name="CostumerAddress_TxtBx"
+                                Margin="5, 0, 0, 0"
+                                Padding="5, 0, 0, 0" 
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="Address"/>
+                </StackPanel>
+
+                <Button x:Name="CreateOrder_Btn"
+                            HorizontalAlignment="Center"
+                            Content="Create Order"
+                            Click="CreateOrder_Btn_Click"
+                            Cursor="Hand"
+                            Margin="10"
+                            Width="250" Height="25"/>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

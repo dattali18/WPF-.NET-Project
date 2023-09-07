@@ -1,0 +1,40 @@
+﻿<Window x:Class="PL.UserControlWindow.User.MainWindowUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL.UserControlWindow.User"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindowUser" Height="550" Width="800" Activated="Window_Activated">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <TabControl
+            Grid.Row="0">
+
+            <TabItem x:Name="ProductCatalogTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal"
+                                Name="ProductCataglogeSp" MouseDown="ProductCataglogeSp_MouseDown">
+                        <Label>Product Cataloge</Label>
+                    </StackPanel>
+                </TabItem.Header>
+                <UserControl Name="uc1"/>
+            </TabItem>
+
+            <TabItem x:Name="CartTab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal"
+                                Name="CartSP" MouseDown="CartSP_MouseDown">
+                        <Label>Cart</Label>
+                    </StackPanel>
+                </TabItem.Header>
+                <UserControl Name="uc2"/>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
